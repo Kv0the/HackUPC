@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Obstacle
+  - Skull
   layers:
   - Default
   - TransparentFX

@@ -5,9 +5,10 @@ public class EnemyManager : MonoBehaviour {
 
     public GameObject enemy;
     public float spawnTime;
+    public bool enemyWaves;
 
     void Start () {
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+        if (enemyWaves) InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
     void Spawn()
@@ -19,6 +20,6 @@ public class EnemyManager : MonoBehaviour {
         //    return;
         //)
 
-        Instantiate(enemy, new Vector3(-10, Random.Range(-4, 4), 0), new Quaternion());
+        Instantiate(enemy, new Vector3(-8, 0, Random.Range(1, 4)), Quaternion.AngleAxis(90.0f, new Vector3(1, 0, 0)));
     }
 }

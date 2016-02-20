@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour {
         //{
             // ... set the destination of the nav mesh agent to the player.
             nav.SetDestination(player.position);
+        transform.Rotate(90.0f, 0, 0);
         //}
         //// Otherwise...
         //else

@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour {
 	public float spawnTime;
 	public Vector3 spawnPosition;
 	public GameObject obstacle;
-    public MeshRenderer rndr;
+    public MeshRenderer rndr_floor;
+    public MeshRenderer rndr_background;
 
     private float timer;
 	private List<GameObject> obstacles;
@@ -23,8 +24,10 @@ public class GameManager : MonoBehaviour {
 
 	void Update () {
 		timer += Time.deltaTime;
+        if (Time.time % 10.0 == 0) speed += acceleration;
 
-        rndr.material.mainTextureOffset += new Vector2(Time.deltaTime * 0.1f, 0);
+        rndr_floor.material.mainTextureOffset += new Vector2(Time.deltaTime * speed/20.0f, 0);
+        rndr_background.material.mainTextureOffset += new Vector2(Time.deltaTime * speed / 100f, 0);
 
         for (int i = obstacles.Count-1; i >= 0; i--) {
 			if (obstacles [i].transform.position.x < destroyPoint) {
