@@ -5,29 +5,40 @@ public class EnemyMovement : MonoBehaviour {
 
     Transform player;
     NavMeshAgent nav;
-
+    private EnemyManager enemyManager;
 
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         nav = GetComponent<NavMeshAgent>();
+
+        GameObject mainCameraObject = GameObject.FindWithTag("MainCamera");
+        if (mainCameraObject != null)
+        {
+            enemyManager = mainCameraObject.GetComponent<EnemyManager>();
+        }
+
+        if (enemyManager == null)
+        {
+            Debug.Log("Cannot find 'EnemyManager' script");
+        }
     }
 
 
     void Update()
     {
-        // If the enemy and the player have health left...
-        //if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
-        //{
-            // ... set the destination of the nav mesh agent to the player.
-            nav.SetDestination(player.position);
-        transform.Rotate(90.0f, 0, 0);
-        //}
-        //// Otherwise...
-        //else
-        //{
-        //    // ... disable the nav mesh agent.
-        //    nav.enabled = false;
-        //}
+        if (nav.enabled)
+        {
+            if (enemyManager.isGameOver())
+            {
+                nav.enabled = false;
+                GetComponent<Rigidbody>().isKinematic = true;
+            }
+            else
+            {
+                nav.SetDestination(player.position);
+            }
+            transform.Rotate(90.0f, 0, 0);
+        }
     }
 }

@@ -9,15 +9,33 @@ public class FlickeringLight : MonoBehaviour {
     public float frequency = 0.5f; // cycle frequency per second
  
     private Color originalColor;
- 
+    private EnemyManager enemyManager;
+
     void Start() {
         originalColor = GetComponent<Light>().color;
+
+        GameObject mainCameraObject = GameObject.FindWithTag("MainCamera");
+        if (mainCameraObject != null)
+        {
+            enemyManager = mainCameraObject.GetComponent<EnemyManager>();
+        }
+
+        if (enemyManager == null)
+        {
+            Debug.Log("Cannot find 'EnemyManager' script");
+        }
     }
 
     void Update()
     {
         Light light = GetComponent<Light>();
-        light.color = originalColor * (EvalWave());
+        if (enemyManager.isGameOver())
+        {
+            light.color = Color.black;
+        } else
+        {  
+            light.color = originalColor * (EvalWave());
+        }
     }
 
     float EvalWave()
