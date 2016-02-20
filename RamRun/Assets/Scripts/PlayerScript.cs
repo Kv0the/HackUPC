@@ -45,5 +45,8 @@ public class PlayerScript : MonoBehaviour {
 		} 
 	}
 
-
+	void OnTriggerExit(Collider other) {
+		GameManager.score += 1;
+	}
+		
 }

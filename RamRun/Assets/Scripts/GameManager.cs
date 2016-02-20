@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
+
+	public static int score;
+	public Text theText;
 
 	public float acceleration;
 	public float speed;
@@ -20,9 +24,11 @@ public class GameManager : MonoBehaviour {
 	void Awake () {
 		obstacles = new List<GameObject> ();
 		timer = 0f;
+		theText.text = "Score: " + score;
 	}
 
 	void Update () {
+		theText.text = "score: " + score;
 		timer += Time.deltaTime;
         if (Time.time % 10.0 == 0) speed += acceleration;
 
