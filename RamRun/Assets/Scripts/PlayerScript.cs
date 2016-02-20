@@ -6,25 +6,26 @@ public class PlayerScript : MonoBehaviour {
 	public float jumpForce;
 
 	private bool canJump = false;
-	private Rigidbody2D rb = null;
-	private Collider2D selfcollider;
+	private Rigidbody rb = null;
+	private Collider selfcollider;
 
 	void Awake() {
 		if (rb == null) {
-			rb = GetComponent<Rigidbody2D> ();
+			rb = GetComponent<Rigidbody> ();
+            if (rb == null) Debug.Log("Cannot get de Rigdbody component of Player");
 		}
-		selfcollider = GetComponent<Collider2D> ();
+		selfcollider = GetComponentInChildren<Collider> ();
 	}
 
 	void Update () {
 		// TODO: update to touch control
 		if (Input.GetAxisRaw ("Vertical") > 0 && canJump) {
 			canJump = false;
-			rb.AddForce(new Vector2(0,jumpForce),ForceMode2D.Impulse);
+            rb.AddForce(new Vector3(0, 0, jumpForce), ForceMode.Impulse);
 		}
-	}
+    }
 
-	void OnCollisionEnter2D(Collision2D collision) {
+	void OnCollisionEnter(Collision collision) {
 		if (collision.collider.tag == "Obstacle") {
 			Vector3 contactPoint = collision.contacts[0].point;
 

@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour {
 	public float spawnTime;
 	public Vector3 spawnPosition;
 	public GameObject obstacle;
+    public MeshRenderer rndr;
 
-	private float timer;
+    private float timer;
 	private List<GameObject> obstacles;
 
 	void Awake () {
@@ -23,8 +24,9 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		timer += Time.deltaTime;
 
+        rndr.material.mainTextureOffset += new Vector2(Time.deltaTime * 0.1f, 0);
 
-		for (int i = obstacles.Count-1; i >= 0; i--) {
+        for (int i = obstacles.Count-1; i >= 0; i--) {
 			if (obstacles [i].transform.position.x < destroyPoint) {
 				Destroy (obstacles [i]);
 				obstacles.RemoveAt (i);
@@ -39,8 +41,9 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void spawnObstacle() {
-		GameObject ob = Instantiate (obstacle, spawnPosition, Quaternion.identity) as GameObject;
-		ob.transform.localScale = new Vector3(0.15f,Random.Range (0.2f, 0.45f),1); // Random.Range(;
-		obstacles.Add(ob);
+		GameObject ob = Instantiate (obstacle, spawnPosition, Quaternion.AngleAxis(90.0f, new Vector3(1,0,0))) as GameObject;
+        ob.transform.localScale = new Vector3(2.25f, Random.Range(2f, 4.5f), 1); // Random.Range(;
+
+        obstacles.Add(ob);
 	}
 }
