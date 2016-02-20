@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerScript : MonoBehaviour {
+
+	public float jumpForce;
 
 	private bool onFloor = false;
-	public float jumpForce = 30;
 	private Rigidbody2D rb = null;
 
 	void Awake() {
