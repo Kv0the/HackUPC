@@ -3,14 +3,14 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ButtonScript : MonoBehaviour {
+public class ButtonPlayScript : MonoBehaviour {
 
 	private Button but;
 
 	void Start () {
 		but = GetComponent<Button> ();
 		but.onClick.AddListener (delegate {
-			SceneManager.LoadScene("menu");
+			SceneManager.LoadScene("main");
 		});
 	}
 
