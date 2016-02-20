@@ -289,9 +289,9 @@ Rigidbody:
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 116
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!4 &1167523390
 Transform:
   m_ObjectHideFlags: 0
@@ -437,7 +437,7 @@ MonoBehaviour:
   speed: 2
   destroyPoint: -9
   spawnTime: 3
-  spawnPosition: {x: 8, y: 0, z: 0}
+  spawnPosition: {x: 9, y: 0, z: 0}
   obstacle: {fileID: 184878, guid: 3abf8eda2aa5cb045a097dcfc366dddb, type: 2}
   rndr: {fileID: 93663621}
 --- !u!1 &1965494906

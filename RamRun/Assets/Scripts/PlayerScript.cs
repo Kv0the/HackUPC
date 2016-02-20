@@ -32,8 +32,7 @@ public class PlayerScript : MonoBehaviour {
 			if (contactPoint.y >= collision.collider.bounds.max.y &&
 				contactPoint.y <= selfcollider.bounds.min.y) canJump = true;
 			//else gameOver
-		}
-		if (collision.collider.tag == "Floor") {
+		} else if (collision.collider.tag == "Floor") {
 			canJump = true;
 		}
 	}
