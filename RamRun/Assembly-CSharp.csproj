@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ButtonPlayScript.cs" />
      <Compile Include="Assets\Scripts\ButtonScript.cs" />
+     <Compile Include="Assets\Scripts\DestroyByContact.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\FlickeringLight.cs" />
