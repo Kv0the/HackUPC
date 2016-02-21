@@ -26,13 +26,15 @@ public class GameManager : MonoBehaviour {
 
 	private static bool enemyKilled = false;
     private float timer;
-	private List<GameObject> obstacles;
+    private float speedTimer;
+    private List<GameObject> obstacles;
     private bool gameOver;
     private bool restart;
 
     void Awake () {
 		obstacles = new List<GameObject> ();
 		timer = 0f;
+        speedTimer = 0f;
 		theText.text = "Score: " + score;
         gameOverText.text = "";
         restartText.text = "";
@@ -64,7 +66,11 @@ public class GameManager : MonoBehaviour {
             restart = true;
         } else {
             timer += Time.deltaTime;
-            if (Time.time % 10.0 == 0) speed += acceleration;
+            if (Time.timeSinceLevelLoad - speedTimer > 10)
+            {
+                speed += acceleration;
+                speedTimer = Time.timeSinceLevelLoad;
+            }
 
             rndr_floor.material.mainTextureOffset += new Vector2(Time.deltaTime * speed / 20.0f, 0);
             rndr_background.material.mainTextureOffset += new Vector2(Time.deltaTime * speed / 100f, 0);
