@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour {
 	private bool canJump = false;
 	private Rigidbody rb = null;
     private Collider selfcollider;
+	private Collider previous = null;
 
 	void Awake() {
 		if (rb == null) {
@@ -17,6 +18,10 @@ public class PlayerScript : MonoBehaviour {
             if (rb == null) Debug.Log("Cannot get de Rigdbody component of Player");
 		}
 		selfcollider = GetComponentInChildren<Collider> ();
+	}
+
+	void Start() {
+		GameManager.score = 0;
 	}
 
 	void Update () {
@@ -37,19 +42,17 @@ public class PlayerScript : MonoBehaviour {
         {
             canJump = true;
         }
-    }
-    void OnCollisionExit(Collision collision) {
-		if (collision.collider.tag == "Obstacle" && collision.contacts.Length > 0) {
-			Vector3 contactPoint = collision.contacts[0].point;
-
-			if (contactPoint.z >= collision.collider.bounds.max.z &&
-				contactPoint.z <= selfcollider.bounds.min.z) canJump = true;
-			//else gameOver
-		} 
+		else if (collision.collider.bounds.max.z == selfcollider.bounds.min.z) {
+			canJump = true;
+		}
 	}
 
+
 	void OnTriggerExit(Collider other) {
-		GameManager.score += 1;
+		if (previous != other) {
+			GameManager.score += 1;
+			previous = other;
+		}
 	}
 		
 }

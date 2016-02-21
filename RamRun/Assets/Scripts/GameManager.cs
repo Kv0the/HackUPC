@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour {
 
 	void spawnObstacle() {
         GameObject ob = Instantiate (obstacle, spawnPosition, Quaternion.AngleAxis(90.0f, new Vector3(1,0,0))) as GameObject;
-        float rn = Random.Range(2f, 10f);
+        float rn = Random.Range(2f, 8f);
         ob.transform.localScale = new Vector3(2.25f, rn, 1); // Random.Range(;
         Vector3 pos = ob.transform.position;
         if (rn > 4.5) pos.z += rn/4.5f;
