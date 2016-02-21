@@ -41,4 +41,9 @@ public class EnemyMovement : MonoBehaviour {
             transform.Rotate(90.0f, 0, 0);
         }
     }
+
+    void OnMouseDown()
+    {
+        Destroy(gameObject);
+    }
 }

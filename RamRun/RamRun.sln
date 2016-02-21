@@ -1,7 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{3A4A7A79-29F7-F795-4746-C84F417BB341}") = "RamRun", "Assembly-CSharp.csproj", "{83EE84E8-A9FB-4F93-41EE-B9A91DB5F804}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RamRun.CSharp", "RamRun.CSharp.csproj", "{2E3CFAC7-E269-3135-CE1F-B65A9CAD9C7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{83EE84E8-A9FB-4F93-41EE-B9A91DB5F804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83EE84E8-A9FB-4F93-41EE-B9A91DB5F804}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83EE84E8-A9FB-4F93-41EE-B9A91DB5F804}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83EE84E8-A9FB-4F93-41EE-B9A91DB5F804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3CFAC7-E269-3135-CE1F-B65A9CAD9C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3CFAC7-E269-3135-CE1F-B65A9CAD9C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3CFAC7-E269-3135-CE1F-B65A9CAD9C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3CFAC7-E269-3135-CE1F-B65A9CAD9C7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
