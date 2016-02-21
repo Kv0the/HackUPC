@@ -22,10 +22,12 @@ public class GameManager : MonoBehaviour {
 	public Vector3 spawnPosition;
 	public GameObject obstacle;
     public MeshRenderer rndr_floor;
-    public MeshRenderer rndr_background;
+    public MeshRenderer rndr_background1;
+    public MeshRenderer rndr_background2;
+    public MeshRenderer rndr_background3;
 
 
-	private static bool enemyKilled = false;
+    private static bool enemyKilled = false;
     private float timer;
     private float speedTimer;
     private List<GameObject> obstacles;
@@ -75,7 +77,9 @@ public class GameManager : MonoBehaviour {
             }
 
             rndr_floor.material.mainTextureOffset += new Vector2(Time.deltaTime * speed / 20.0f, 0);
-            rndr_background.material.mainTextureOffset += new Vector2(Time.deltaTime * speed / 100f, 0);
+            rndr_background1.material.mainTextureOffset += new Vector2(Time.deltaTime * speed / 100f, 0);
+            rndr_background2.material.mainTextureOffset += new Vector2(Time.deltaTime * speed / 100f, 0);
+            rndr_background3.material.mainTextureOffset += new Vector2(Time.deltaTime * speed / 100f, 0);
 
             for (int i = obstacles.Count - 1; i >= 0; i--)
             {
