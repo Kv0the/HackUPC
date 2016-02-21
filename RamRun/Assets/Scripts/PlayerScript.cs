@@ -25,7 +25,8 @@ public class PlayerScript : MonoBehaviour {
             rb.AddForce(new Vector3(0, 0, jumpForce), ForceMode.Impulse);
 		}
 
-        cam.transform.position = new Vector3(0f,10f,transform.position.z + 1);
+        if (transform.position.x < 0) rb.AddForce(new Vector3(-transform.position.x/10, 0, 0), ForceMode.Acceleration);
+        cam.transform.position = new Vector3(0f,10f,transform.position.z + 2.7f);
     }
 
     void OnCollisionStay(Collision collision)
