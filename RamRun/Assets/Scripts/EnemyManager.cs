@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour {
 
     void Spawn()
     {
-        if (!gameOver) Instantiate(enemy, new Vector3(-8, 0, Random.Range(1, 4)), Quaternion.AngleAxis(90.0f, new Vector3(1, 0, 0)));
+        if (!gameOver) Instantiate(enemy, new Vector3(-8, 0, Random.Range(10, 30)), Quaternion.AngleAxis(90.0f, new Vector3(1, 0, 0)));
     }
 
     public void GameOver()

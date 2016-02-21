@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour {
                 timer -= spawnTime;
             }
         }
+
+        if (GameObject.FindGameObjectWithTag("Player").transform.position.x < destroyPoint - 0.5f) GameOver();
     }    	
 
 	void spawnObstacle() {
