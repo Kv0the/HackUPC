@@ -44,6 +44,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void OnMouseDown()
     {
+		GameManager.EnemySound ();
         Destroy(gameObject);
     }
 }

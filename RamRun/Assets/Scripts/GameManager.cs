@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     public Text restartText;
 	public Image blackBG;
 	public AudioSource bgMusic;
+	public AudioSource enemySound;
 
     public float acceleration;
 	public float speed;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour {
     public MeshRenderer rndr_floor;
     public MeshRenderer rndr_background;
 
+
+	private static bool enemyKilled = false;
     private float timer;
 	private List<GameObject> obstacles;
     private bool gameOver;
@@ -39,6 +42,12 @@ public class GameManager : MonoBehaviour {
 
 	void Update () {
         theText.text = "Score: " + score;
+
+		if (enemyKilled) {
+			enemySound.Play ();
+			enemyKilled = false;
+		}
+
         if (restart)
         {
             if (Input.GetKeyDown(KeyCode.R))
@@ -93,4 +102,8 @@ public class GameManager : MonoBehaviour {
         gameOverText.text = "Game Over!";
         gameOver = true;
     }
+
+	public static void EnemySound() {
+		enemyKilled = true;
+	}
 }

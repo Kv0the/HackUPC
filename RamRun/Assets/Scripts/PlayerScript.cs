@@ -5,6 +5,7 @@ public class PlayerScript : MonoBehaviour {
 
 	public float jumpForce;
     public Camera cam;
+	public AudioSource playerJump;
 
 	private bool canJump = false;
 	private Rigidbody rb = null;
@@ -22,6 +23,7 @@ public class PlayerScript : MonoBehaviour {
 		// TODO: update to touch control
 		if (Input.GetAxisRaw ("Vertical") > 0 && canJump) {
 			canJump = false;
+			playerJump.Play ();
             rb.AddForce(new Vector3(0, 0, jumpForce), ForceMode.Impulse);
 		}
 

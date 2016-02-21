@@ -5,6 +5,8 @@ public class DestroyByContact : MonoBehaviour
 {
     //public GameObject explosion;
     //public GameObject playerExplosion;
+	public AudioSource playerDeath;
+
     private GameManager gameManager;
     private EnemyManager enemyManager;
 
@@ -33,6 +35,7 @@ public class DestroyByContact : MonoBehaviour
         if (other.tag == "Skull")
         {
             //Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+			playerDeath.Play();
             gameManager.GameOver();
             enemyManager.GameOver();
         }
