@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	public Image blackBG;
 	public AudioSource bgMusic;
 	public AudioSource enemySound;
+	public AudioSource cliffSound;
 
     public float acceleration;
 	public float speed;
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
+				score = 0;
                 UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
             }
         }
@@ -92,7 +94,12 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if (GameObject.FindGameObjectWithTag("Player").transform.position.x < destroyPoint - 0.5f) GameOver();
+		if (GameObject.FindGameObjectWithTag ("Player").transform.position.x < destroyPoint - 0.5f) {
+			if (!gameOver) {
+				cliffSound.Play ();
+				GameOver ();
+			}
+		}
     }    	
 
 	void spawnObstacle() {
