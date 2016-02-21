@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 	public Text theText;
     public Text gameOverText;
     public Text restartText;
+	public Image blackBG;
+	public AudioSource bgMusic;
 
     public float acceleration;
 	public float speed;
@@ -46,6 +48,10 @@ public class GameManager : MonoBehaviour {
         }
         else if (gameOver) {
             restartText.text = "Tap to Restart";
+			Color temp = blackBG.color;
+			temp.a=1f;
+			blackBG.color = temp;
+			bgMusic.enabled = false;
             restart = true;
         } else {
             timer += Time.deltaTime;
