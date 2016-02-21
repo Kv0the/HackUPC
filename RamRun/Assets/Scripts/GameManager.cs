@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour {
 
         if (restart)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
 				score = 0;
                 UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);

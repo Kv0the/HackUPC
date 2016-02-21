@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void Update () {
 		// TODO: update to touch control
-		if (Input.GetAxisRaw ("Vertical") > 0 && canJump) {
+		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && Input.GetTouch(0).deltaPosition.x > 0 && canJump) {
 			canJump = false;
 			playerJump.Play ();
             rb.AddForce(new Vector3(0, 0, jumpForce), ForceMode.Impulse);
